@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GuessingGame</string>
+    <string name="directions">Choose a number between 1-100.
+        \nYou have 5 chances to pick the number I have generated for you. \nGood luck!</string>
+    <string name="start">Start</string>
+    <string name="guess_a_number">Guess A Number:</string>
+    <string name="higher">Higher</string>
+    <string name="_1_100">1 - 100</string>
+    <string name="submit">Submit</string>
+</resources>
