@@ -7,4 +7,7 @@
     <string name="higher">Higher</string>
     <string name="_1_100">1 - 100</string>
     <string name="submit">Submit</string>
+    <string name="you_won">You Won!!!</string>
+    <string name="winning_number">The winning number was %1$d</string>
+    <string name="play_again">Play Again</string>
 </resources>
