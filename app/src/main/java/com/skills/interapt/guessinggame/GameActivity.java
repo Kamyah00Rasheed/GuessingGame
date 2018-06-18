@@ -21,6 +21,7 @@ public class GameActivity extends AppCompatActivity {
     public static final String winningNumber = "WINNING_NUMBER";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,15 @@ public class GameActivity extends AppCompatActivity {
         //Toast.makeText(this, Integer.toString(generatedNumber), Toast.LENGTH_SHORT).show();
 
         setListener();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        generatedNumber= (int) Math.ceil(Math.random() * 100);
+        numberOfGuesses=0;
+        clue.setVisibility(View.INVISIBLE);
+        guess.setText("");
     }
 
     private void setListener() {
