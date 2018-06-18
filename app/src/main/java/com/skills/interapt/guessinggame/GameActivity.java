@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.view.View.VISIBLE;
-
 public class GameActivity extends AppCompatActivity {
 
     private Button guessButton;
@@ -55,18 +53,17 @@ public class GameActivity extends AppCompatActivity {
 
         try {
             int userGuess = Integer.parseInt(guess.getText().toString());
-            if (userGuess > 100 || userGuess >= 0) {
-                clue.setText("Enter a number between 1 and 100.");
+            if (userGuess > 100 || userGuess <= 0) {
+                clue.setText(R.string.enter_number_1_100);
                 clue.setVisibility(View.VISIBLE);
                 guess.setText("");
             } else {
                 checkGuess(userGuess);
             }
         } catch (NumberFormatException nfe) {
-            clue.setText("Enter a number.");
+            clue.setText(R.string.enter_number);
             clue.setVisibility(View.VISIBLE);
         }
-
     }
 
     //This method will take the input and check it against the generatedNumber. Depending on the outcome it will change the view
@@ -88,13 +85,13 @@ public class GameActivity extends AppCompatActivity {
             clue.setVisibility(View.VISIBLE);
             guess.setText("");
             numberOfGuesses++;
+            Toast.makeText(this, getString(R.string.chances_left, (5- numberOfGuesses)), Toast.LENGTH_SHORT).show();
         } else if (userGuess > generatedNumber) {
-            //TODO update clue TextView to say LOWER, set the visibility to VISIBLE, set guess EditText to ""
-            //TODO and increment numberOfGuesses by 1
-            clue.setText("lower");
+            clue.setText(R.string.lower);
             clue.setVisibility(View.VISIBLE);
             guess.setText("");
             numberOfGuesses++;
+            Toast.makeText(this, getString(R.string.chances_left, (5- numberOfGuesses)), Toast.LENGTH_SHORT).show();
         }
 
     }
